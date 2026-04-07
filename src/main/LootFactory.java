@@ -2,7 +2,7 @@ package main;
 
 public class LootFactory {
 
-    private static final int EXPECTED_NUM_FIELDS = 6;
+    private static final int EXPECTED_NUM_FIELDS = 4;
 
     public static Loot create(String[] csvRecord) {
 
@@ -19,10 +19,10 @@ public class LootFactory {
 
         switch (typeField) {
             case "WEAPON":
-                int damage = Integer.parseInt(csvRecord[4]);
+                int damage = Integer.parseInt(csvRecord[3]);
                 return new Weapon(name, rarity, damage);
             case "CONSUMABLE":
-                int restoreAmount = Integer.parseInt(csvRecord[4]);
+                int restoreAmount = Integer.parseInt(csvRecord[3]);
                 return new Consumable(name, rarity, restoreAmount);
             default:
                 // If we get here, we found an unexpected entity type!
